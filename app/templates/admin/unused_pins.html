@@ -1,0 +1,37 @@
+
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h2>View Unused Pins</h2>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>Date Created</th>
+                <th>Category</th>
+                <th>Pin</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pin in unused_pins.items %}
+                <tr>
+                    <td>{{ pin.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>{{ pin.category }}</td>
+                    <td>{{ pin.value }}</td>
+                    <td>{{ 'Not Used' if pin.date_used is none else 'Used' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination justify-content-center">
+        <span class="badge badge-light">Page {{ unused_pins.page }} of {{ unused_pins.pages }}</span>
+        {% if unused_pins.has_prev %}
+            <a href="{{ url_for('unused_pins', page=unused_pins.prev_num, per_page=per_page) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% endif %}
+        {% if unused_pins.has_next %}
+            <a href="{{ url_for('unused_pins', page=unused_pins.next_num, per_page=per_page) }}" class="btn btn-sm btn-primary">Next</a>
+        {% endif %}
+    </div>
+    
+{% endblock %}

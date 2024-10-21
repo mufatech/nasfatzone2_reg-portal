@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+
+    {% block content %}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Generate Pin</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="pin_category" class="mt-4">Select Pin Category:</label>
+                            <select class="form-control" id="pin_category" name="pin_category" required>
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="children">Children</option>
+                                <option value="teens">Teens</option>
+                                <option value="adults">Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pin_count" class="mt-4">Number of Pins to Generate:</label>
+                            <input type="number" class="form-control" id="pin_count" name="pin_count" min="1" required>
+                        </div>
+                        
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mt-5">Generate Pin</button>
+                        </div>
+                    </form>
+                    <!-- Display the generated pins here -->
+                    {% if generated_pins %}
+                    <div class="alert alert-success text-center mt-3">
+                        <strong>Generated Pin Category:</strong> <h1>{{ pin_category }}</h1><br>
+                        <strong>Generated Pins:</strong>
+                        <ul>
+                            {% for pin in generated_pins %}
+                                <li>{{ pin }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

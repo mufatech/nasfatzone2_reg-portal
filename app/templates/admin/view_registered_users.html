@@ -1,0 +1,50 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h2 class="m-3">Registered Users</h2>
+    <table class="table table-success table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Zone</th>
+                <th>Branch</th>
+                <th>Gender</th>
+                <th>Category</th>
+                <th>Payment Date</th>
+                <th>Expectations</th>
+                <th>Registration Pin</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in registered_users.items %}
+            <tr>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.number }}</td>
+                <td>{{ user.zone }}</td>
+                <td>{{ user.branch }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.category }}</td>
+                <td>{{ user.payment_date }}</td>
+                <td>{{ user.expectations }}</td>
+                <td>{{user.registration_pin}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination justify-content-center">
+        <span class="badge badge-light">
+            Page {{ registered_users.page }} of {{ registered_users.pages }}
+        </span>
+        {% if registered_users.has_prev %}
+            <a href="{{ url_for('view_registered_users', page=registered_users.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% endif %}
+        {% if registered_users.has_next %}
+            <a href="{{ url_for('view_registered_users', page=registered_users.next_num) }}" class="btn btn-sm btn-primary">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

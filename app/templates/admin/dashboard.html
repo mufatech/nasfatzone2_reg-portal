@@ -1,0 +1,123 @@
+{% extends "admin/base.html" %}
+
+    {% block content %}
+
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="row">
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"> Generate Pin</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('generate_pin') }}"></a>
+                        
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body">View Unused Pins</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('unused_pins') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">View Used Pins</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('used_pins') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Pins Analytics</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('pin_analytics') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body">Registered Users</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('view_registered_users') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Users Analytics</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="{{ url_for('user_analytics') }}"></a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <h1 class="mt-4">General Analytics</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">General Analytics</li>
+        </ol>
+        <div class="row">
+            <!-- Card 1: Total Number of Generated Pins -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Generated Pins</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_generated }}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2: Total Number of Registered Users -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Registered Users</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_users_registered }}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Total Number of Used Pins and Percentage -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Used Pins</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_used }}</h2>
+                        <span class="card-text style"> {{ percentage_used }}%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4: Total Number of Unused Pins and Percentage -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Number of Unused Pins</h5>
+                        <h2 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_unused }}</h2>
+                        <span class="card-text style"> {{ percentage_unused }}%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    {% endblock %}
+

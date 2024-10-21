@@ -1,0 +1,71 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<div class="card-header m-4">
+    <h3 class="text-center">Analytics For The Pins Generated</h3>
+</div>
+
+<div class="row mb-4 mt-4">
+    <div class="col-sm-3 m-3 mb-sm-0">
+      <div class="card">
+    
+
+        <div class="card-body">
+          <h5 class="card-title">Total Pin Generated</h5>
+          <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_generated }}</h3>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 m-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Pin Unused</h5>
+          <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_unused }} </h3>
+          <span class="card-text style"> % {{ percentage_unused }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 m-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Pin Used</h5>
+            <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_used }}</h3>
+            <span class="card-text style"> % {{ percentage_used }} </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 m-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pin Generated For Adults</h5>
+            <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_adults }}</h3>
+            <span class="card-text style"> % {{ percentage_adults }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 m-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pin Generated For Children</h5>
+            <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_children }}</h3>
+            <span class="card-text style"> % {{ percentage_children }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 m-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pin Generated For Teens</h5>
+            <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_pins_teens }}</h3>
+            <span class="card-text style"> % {{ percentage_teens }}</span>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+  {% endblock %}

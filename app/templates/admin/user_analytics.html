@@ -1,0 +1,104 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<div class="card-header m-4">
+    <h3 class="text-center">Analytics For The Users Registered</h3>
+</div>
+
+<div class="row mb-4 mt-4">
+    <!-- Total Users Registered -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Users Registered</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_users_registered }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Female Users -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Female Users</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_female_users }}</h3>
+                <span class="card-text style">% {{ percentage_female_users }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Male Users -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Male Users</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_male_users }}</h3>
+                <span class="card-text style">% {{ percentage_male_users }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Zone 2 Users -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Zone 2 Users</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_zone_2_users }}</h3>
+                <span class="card-text style">% {{ percentage_zone_2_users }}</span>
+            </div>
+            </div>
+        </div>
+  
+
+    <!-- Percentage of Zone 3 Users -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Zone 3 Users</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_zone_3_users }}</h3>
+                <span class="card-text style">% {{ percentage_zone_3_users }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Teens Registered -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Teens Registered</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_teens_users }}</h3>
+                <span class="card-text style">% {{ percentage_teens_users }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Children Registered -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Children Registered</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_children_users }}</h3>
+                <span class="card-text style">% {{ percentage_children_users }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage of Adults Registered -->
+    <div class="col-sm-3 m-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Adults Registered</h5>
+                <h3 class="badge bg-primary rounded-pill custom-font-size">{{ total_adults_users }}</h3>
+                <span class="card-text style">% {{ percentage_adults_users }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+  {% endblock %}
