@@ -2,10 +2,14 @@ import mysql.connector
 
 # Establish connection
 connection = mysql.connector.connect(
-    host= 'localhost',
-    user= 'mufatech',
-    passwd = 'mufatech',
-    database= 'nasfat2'
+    host= 'dpg-csb40qbtq21c7397kmb0-a',
+    user= 'reg_portal_y4v2_user',
+    passwd = 'FlRvFSWjS5BzxDFnjhnp0YoPbRJQnwxd',
+    database= 'reg_portal_y4v2'
+    # host= 'localhost',
+    # user= 'mufatech',
+    # passwd = 'mufatech',
+    # database= 'nasfat2'
     
 )
 

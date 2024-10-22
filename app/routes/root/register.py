@@ -60,7 +60,7 @@ def register():
 
 def send_welcome_email(user):
     try:
-        subject = 'Welcome To Nasfat Sisters Camp 2024'
+        subject = 'Welcome To Nasfat Youth Camp 2024'
         html_template = render_template('user/welcome_email.html', user=user)
 
         msg = Message(subject, recipients=[user.email])
