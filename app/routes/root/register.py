@@ -18,12 +18,11 @@ def register():
         branch = request.form.get('branch')
         gender = request.form.get('gender')
         category = request.form.get('category')
+        age_range = request.form.get('age_range')
         payment_date = request.form.get('payment_date')
-        payment_mode = request.form.get('payment_mode')
         registration_pin = request.form.get('registration_pin')
         expectations = request.form.get('expectations')
-        massage = request.form.get('massage')
-
+        
         # Check if the registration_pin exists and is unused
         pin = Pin.query.filter_by(value=registration_pin, date_used=None, category=category).first()
         
@@ -41,10 +40,9 @@ def register():
             # Create a new user
             user = User(first_name=first_name, last_name=last_name, 
                         number=number, email=email, zone=zone, branch=branch, 
-                        gender=gender, category=category, payment_date=payment_date,
-                        payment_mode=payment_mode, registration_pin=registration_pin, 
-                        expectations=expectations,
-                        massage=massage)
+                        gender=gender, category=category, age_range=age_range, payment_date=payment_date,
+                        registration_pin=registration_pin, 
+                        expectations=expectations)
             db.session.add(user)
             
             # Send a welcome email
@@ -60,7 +58,7 @@ def register():
 
 def send_welcome_email(user):
     try:
-        subject = 'Welcome To Nasfat Youth Camp 2024'
+        subject = 'Welcome To Nasfat Youth Wing Lagos zone 2 Camp 2024'
         html_template = render_template('user/welcome_email.html', user=user)
 
         msg = Message(subject, recipients=[user.email])

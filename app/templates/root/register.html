@@ -330,6 +330,20 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
 
     <div class="overflow box">
         <div class="floatleft">
+            <p class="p2">Age Range:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <select style="font-size: 18px;" class="input2" name="age_range" id="" required>
+                <option value="" disabled selected>Select Option</option>
+                <option value="18-above">18YRS-Above</option>
+                <option value="13-17">13-17YRSS</option>
+                <option value="4-12">4-12YRS</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
             <p class="p2">Payment Date:</p>
         </div>
         <div class="floatleftinput1 mrgtp">
@@ -437,12 +451,7 @@ $("#click").click(function(){
   else{$(".right5").addClass("rights")}
 })
 
-
-
-
 </script>
-
-
 
 <script>
     // Get references to the select elements
@@ -479,7 +488,47 @@ $("#click").click(function(){
 
     // Initialize the branch options based on the default zone
     updateBranchOptions();
+
 </script>
+
+<!-- <script>
+    // Get references to the select elements
+    const categorySelect = document.getElementById('categorySelect');
+    const age_rangeSelect = document.getElementById('age_rangeSelect');
+
+    // Define age range options for each category
+    const category = {
+        'Adult': ['18yrs-Above'],
+        'Teen': ['13-17yrs'],
+        'Children': ['4-12yrs'],
+        
+    };
+
+    // Function to update age range options based on selected category
+    function updateAgerangeOptions() {
+        const selectedCategory = categorySelect.value;
+        // Clear existing options
+        age_rangeSelect.innerHTML = '';
+        // Add default "Select Option" option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select Option';
+        age_rangeSelect.appendChild(defaultOption);
+        // Add age_range options based on the selected category
+        age_rangeOptions[selectedCategory].forEach((age_range) => {
+            const option = document.createElement('option');
+            option.value = age_range;
+            option.textContent = age_range;
+            age_rangeSelect.appendChild(option);
+        });
+    }
+
+    // Add event listener to the zone select element
+    categorySelect.addEventListener('change', updateAgerangeOptions);
+
+    // Initialize the branch options based on the default zone
+    updateAgerangeOptions();
+</script> -->
 
 
 <script src ="https://code.jquery.com/jquery-3.5.0.min.js"></script>
