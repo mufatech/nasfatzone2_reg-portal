@@ -72,7 +72,7 @@ def register():
 
             thread = threading.Thread(
                 target=send_confirmation_email,
-                args=(first_name, email),
+                args=(first_name, email, number, branch, category),
                 daemon=True,
             )
             thread.start()

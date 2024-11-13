@@ -16,20 +16,26 @@ sender = "nasfatlagosyouthzone2@gmail.com"
 password = "rqzuobvgllursjjk"
 
 
-def send_confirmation_email(name, email):
+def send_confirmation_email(name, email, number, branch, category):
     msg = """\
-    hello {0},
+    Hello {0},
+    As-salam Alaykun Waramotuh laha wabarakatuh
     Welcome To Nasfat Youth Wing Lagos zone 2 {1}'
 
     Event Details:
     - Date: {2}
     - Location: {3}
+    - Number: {4}
+    - Branch: {5}
+    - Category: {6}
 
-    regards
-     he Committee
+    We hope you will learn, unlearn and relearn.
+
+    Regards
+    The Committee
 
     Mozzie
-    """.format(name, event_name, event_date, location)
+    """.format(name, event_name, event_date, location, number, branch, category)
     try:
         yag = yagmail.SMTP(sender, password)
         yag.send(email, subject, msg)
@@ -37,4 +43,4 @@ def send_confirmation_email(name, email):
         
     except:
         print("email not sending")
-send_confirmation_email("Bose", "fabosedesidiqat@gmail.com")
+#send_confirmation_email("Bose", "fabosedesidiqat@gmail.com")
