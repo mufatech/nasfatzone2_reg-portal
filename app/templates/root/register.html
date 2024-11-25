@@ -134,6 +134,7 @@ h1{
  }
 
 .p1{
+    font-weight: bold;
     margin-top: 13px;
     font-size: 20px;
     opacity: 0.8;
@@ -316,6 +317,16 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
 
     <div class="overflow box">
         <div class="floatleft">
+            <p class="p2">Status:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input id="male" type="radio" name="status" value="Single"><label class="p1" for="single">Single</label>
+            <input id="female" type="radio" name="status" value="Married"><label class="p1" for="married">Married</label>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
             <p class="p2">Category:</p>
         </div>
         <div class="floatleftinput1 mrgtp">
@@ -460,7 +471,7 @@ $("#click").click(function(){
 
     // Define branch options for each zone
     const branchOptions = {
-        'Zone 2': ['Isolo', 'Iyana Ipaja', 'Ipaja', 'Mafoluku/Oshodi', 'Ikotun', 'Alakuko/Alagbado', 'Iju/Oko Oba', 'Oke-Odo pipeline', 'Jankara/Ojokoro', 'Ejigbo', 'Meiran', 'Abule Egba', 'Dopemu/Agege', 'Baba/Ayobo', 'Ijegun', 'Shasha', 'Abaranje/Okerube', 'Ajasa/Command', 'Igando/Egan/Akesan', 'Arida Branch', 'Akinyode Group'],
+        'Zone 2': ['Isolo', 'Iyana Ipaja', 'Ipaja', 'Mafoluku/Oshodi', 'Ikotun', 'Alakuko/Alagbado', 'Iju/Oko Oba', 'Oke-Odo pipeline', 'Jankara/Ojokoro', 'Ejigbo', 'Meiran', 'Abule Egba', 'Dopemu/Agege', 'Bada/Ayobo', 'Ijegun', 'Shasha', 'Abaranje/Okerube', 'Ajasa/Command', 'Igando/Egan/Akesan', 'Arida Branch', 'Akinyode Group'],
         
     };
 

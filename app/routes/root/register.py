@@ -20,6 +20,7 @@ def register():
         zone = request.form.get("zone")
         branch = request.form.get("branch")
         gender = request.form.get("gender")
+        status = request.form.get("status")
         category = request.form.get("category")
         age_range = request.form.get("age_range")
         payment_date = request.form.get("payment_date")
@@ -57,6 +58,7 @@ def register():
                 zone=zone,
                 branch=branch,
                 gender=gender,
+                status=status,
                 category=category,
                 age_range=age_range,
                 payment_date=payment_date,

@@ -24,6 +24,10 @@ def view_registered_users():
         users_query = users_query.filter(User.category.ilike(f'%{category_query}%'))
 
 
+        # Paginate the results
+        page = request.args.get('page', 1, type=int)
+        registered_users = users_query.paginate(page=page, per_page=10)
+
     # Retrieve the page number from the request, default to 1 if not provided
     page = request.args.get('page', default=1, type=int)
 
@@ -33,4 +37,6 @@ def view_registered_users():
     # Query registered users with pagination
     registered_users = User.query.paginate(page=page, per_page=per_page, error_out=False)
 
-    return render_template('admin/view_registered_users.html', registered_users=registered_users)
+    return render_template('admin/view_registered_users.html', registered_users=registered_users, branch_query=branch_query,
+        category_query=category_query)
+
