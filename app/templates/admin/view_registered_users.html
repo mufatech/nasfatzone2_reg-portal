@@ -2,13 +2,24 @@
 
 {% block content %}
     <h2 class="m-3">Registered Users</h2>
+
+     <!-- Search Form -->
+     <form method="GET" action="{{ url_for('view_registered_users') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="branch" class="form-control" placeholder="Search by branch" value="{{ branch_query }}">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    
     <table class="table table-success table-striped mt-4">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>Zone</th>
+                <!-- <th>Zone</th> -->
                 <th>Branch</th>
                 <th>Gender</th>
                 <th>Category</th>
@@ -25,7 +36,7 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.number }}</td>
-                <td>{{ user.zone }}</td>
+                <!-- <td>{{ user.zone }}</td> -->
                 <td>{{ user.branch }}</td>
                 <td>{{ user.gender }}</td>
                 <td>{{ user.category }}</td>

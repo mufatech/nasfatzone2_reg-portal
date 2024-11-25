@@ -8,6 +8,22 @@ from flask_login import login_required
 @app.route('/view_registered_users', methods=['GET'])
 @login_required  # Use login_required to ensure only logged-in admins can access this page
 def view_registered_users():
+
+    # Get search query from the request
+    branch_query = request.args.get('branch', '').strip()
+    category_query = request.args.get('category', '').strip()
+
+
+    # Query the database for registered users
+    users_query = User.query
+
+    if branch_query:
+        users_query = users_query.filter(User.branch.ilike(f'%{branch_query}%'))
+
+    if category_query:
+        users_query = users_query.filter(User.category.ilike(f'%{category_query}%'))
+
+
     # Retrieve the page number from the request, default to 1 if not provided
     page = request.args.get('page', default=1, type=int)
 
