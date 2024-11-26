@@ -8,9 +8,9 @@ class User(db.Model):
     last_name = db.Column(db.String(50), nullable=False)
     number = db.Column(db.String(15), nullable=False)
     email = db.Column(db.String(100), nullable=False)
-    zone = db.Column(db.String(50), nullable=False)
     branch = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
+    marital_status = db.Column(db.String(50), nullable=True)
     category = db.Column(db.String(20), nullable=False)  # 'Adult', 'Teen', 'Children', etc.
     age_range = db.Column(db.String(20), nullable=True)
     payment_date = db.Column(db.Date, nullable=False)
@@ -20,15 +20,15 @@ class User(db.Model):
     # Define a one-to-many relationship to the Pin model
     pins = db.relationship('Pin', back_populates='user')
 
-    def __init__(self, first_name, last_name, number, email, zone, branch, gender, 
+    def __init__(self, first_name, last_name, number, email, branch, gender, marital_status, 
                  category, age_range, payment_date, registration_pin, expectations=None):
         self.first_name = first_name
         self.last_name = last_name
         self.number = number
         self.email = email
-        self.zone = zone
         self.branch = branch
         self.gender = gender
+        self.marital_status = marital_status
         self.category = category
         self.age_range = age_range
         self.payment_date = payment_date

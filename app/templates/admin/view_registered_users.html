@@ -5,13 +5,32 @@
 
      <!-- Search Form -->
      <form method="GET" action="{{ url_for('view_registered_users') }}" class="mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="branch" class="form-control" placeholder="Search by Branch" value="{{ branch_query }}">
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="gender" class="form-control" placeholder="Search by Gender" value="{{ gender_query }}">
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="category" class="form-control" placeholder="Search by Category" value="{{ category_query }}">
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+        <a href="{{ url_for('download_registered_users', branch=branch_query, gender=gender_query, category=category_query) }}" class="btn btn-success mb-3">
+        Download Delegates Data
+        </a>
+     <!-- <form method="GET" action="{{ url_for('view_registered_users') }}" class="mb-3">
         <div class="input-group">
             <input type="text" name="branch" class="form-control" placeholder="" value="">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Search</button>
             </div>
         </div>
-    </form>
+    </form> -->
     {% if registered_users.items %}
         <table class="table table-success table-striped mt-4">
             <thead>
@@ -19,9 +38,9 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <!-- <th>Zone</th> -->
                     <th>Branch</th>
                     <th>Gender</th>
+                    <th>Marital Status</th>
                     <th>Category</th>
                     <th>Age Range</th>
                     <th>Payment Date</th>
@@ -36,9 +55,9 @@
                     <td>{{ user.first_name }} {{ user.last_name }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.number }}</td>
-                    <!-- <td>{{ user.zone }}</td> -->
                     <td>{{ user.branch }}</td>
                     <td>{{ user.gender }}</td>
+                    <td>{{ user.marital_status }}</td>
                     <td>{{ user.category }}</td>
                     <td>{{ user.age_range }}</td>
                     <td>{{ user.payment_date }}</td>

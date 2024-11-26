@@ -4,6 +4,7 @@ import yagmail
 event_name = "Dawah Youth Camp 2024"
 event_date = "24th - 29th December 2024"
 location = "Taqwa School, Ifako Ijaye"
+whatsapplink = "Follow this link to join Delegates group: https://chat.whatsapp.com/DBdjiShxtdN9u71hNP6lB5"
 subject = "Registration Confirmation"
 
 
@@ -28,6 +29,7 @@ def send_confirmation_email(name, email, number, branch, category):
     - Number: {4}
     - Branch: {5}
     - Category: {6}
+    - WhatsAppLink: {7}
 
     We hope you will learn, unlearn and relearn.
 
@@ -35,7 +37,7 @@ def send_confirmation_email(name, email, number, branch, category):
     The Committee
 
     Mozzie
-    """.format(name, event_name, event_date, location, number, branch, category)
+    """.format(name, event_name, event_date, location, number, branch, category, whatsapplink)
     try:
         yag = yagmail.SMTP(sender, password)
         yag.send(email, subject, msg)

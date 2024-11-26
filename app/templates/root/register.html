@@ -22,11 +22,11 @@ body{
     margin: auto;
     width: 50%;
     background: rgb(227,227,227);
-background: radial-gradient(circle, rgba(227,227,227,1) 0%, rgba(224,218,255,1) 
-48%, rgba(254,245,255,1) 100%, rgba(106,47,119,1) 100%);
-border-radius: 0px 100px 0px 100px;
-     font-family: Arial, Helvetica, sans-serif;
-     box-sizing: border-box;
+    background: radial-gradient(circle, rgba(227,227,227,1) 0%, rgba(224,218,255,1) 
+    48%, rgba(254,245,255,1) 100%, rgba(106,47,119,1) 100%);
+    border-radius: 0px 100px 0px 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
     
      
     
@@ -52,9 +52,6 @@ h1{
     padding: 30px 20px;
     
 }
-
-
-
 
 
 .floatleft{
@@ -186,8 +183,8 @@ button:hover{
 input:hover{
     
     -webkit-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
--moz-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
+    box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
 }
 
 @media(max-width: 1000px){
@@ -249,17 +246,17 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
 
     <div class="overflow box">
         <div class="floatleft">
-            <p class="p2">Username:</p>
+            <p class="p2">Delegate Name:</p>
         </div>
         <div class="floatleftinput mrgtp">
             <input class="input1 right1"  name="first_name" type="text" id="error1" placeholder="Your Name" required>
             <br>
-            <p class="p1">First Name</p>
+            <p class="p1">Surname</p>
         </div>
         <div class="floatleftinput mrgtp">
             <input class="input3 right2" type="text" name="last_name" placeholder="Last Name" required>
             <br>
-            <p class="p1">Last Name</p>
+            <p class="p1">Other Names</p>
         </div>
     </div>
 
@@ -281,7 +278,21 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
         </div>
     </div>
 
-    <div class="overflow box">
+    <!-- <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Branch:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <select style="font-size: 18px;" class="input2" name="category" id="" required>
+                <option value="" disabled selected>Select Option</option>
+                <option value="adults">Adult</option>
+                <option value="teens">Teen</option>
+                <option value="children">Children</option>
+            </select>
+        </div>
+    </div> -->
+
+    <!-- <div class="overflow box">
         <div class="floatleft">
             <p class="p2">Zone:</p>
         </div>
@@ -289,18 +300,18 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
             <select style="font-size: 18px;" class="input2" name="zone" id="zoneSelect" required>
                 <option value="" disabled selected>Select Option</option>
                 <option value="Zone 2">Zone 2</option>
-                <!-- <option value="Zone 3">Zone 3</option> -->
+                <option value="Zone 3">Zone 3</option>
             </select>
         </div>
     </div>
-    
+     -->
     <div class="overflow box">
         <div class="floatleft">
             <p class="p2">Branch:</p>
         </div>
         <div class="floatleftinput1 mrgtp">
             <select style="font-size: 18px;" class="input2" name="branch" id="branchSelect" required>
-                <option value="option">Select Option</option>
+                <option value="option">Select a Branch</option>
             </select>
         </div>
     </div>
@@ -311,17 +322,19 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
         </div>
         <div class="floatleftinput1 mrgtp">
             <input id="male" type="radio" name="gender" value="Male"><label class="p1" for="male">Male</label>
-            <input id="female" type="radio" name="gender" value="Female"><label class="p1" for="female">Female</label>
+            <input id="divorced" type="radio" name="gender" value="Female"><label class="p1" for="female">Female</label>
         </div>
     </div>
 
     <div class="overflow box">
         <div class="floatleft">
-            <p class="p2">Status:</p>
+            <p class="p2">Marital Status:</p>
         </div>
         <div class="floatleftinput1 mrgtp">
-            <input id="male" type="radio" name="status" value="Single"><label class="p1" for="single">Single</label>
-            <input id="female" type="radio" name="status" value="Married"><label class="p1" for="married">Married</label>
+            <input id="married" type="radio" name="marital_status" value="Married"><label class="p1" for="married">Married</label>
+            <input id="engaged" type="radio" name="marital_status" value="Engaged"><label class="p1" for="engaged">Engaged</label>
+            <input id="single&searching" type="radio" name="marital_status" value="Single&searching"><label class="p1" for="Single&searching">Single & Searching</label>
+            <input id="single" type="radio" name="marital_status" value="Single"><label class="p1" for="single">Single</label>
         </div>
     </div>
 
@@ -466,6 +479,57 @@ $("#click").click(function(){
 
 <script>
     // Get references to the select elements
+    // const zoneSelect = document.getElementById('zoneSelect');
+    const branchSelect = document.getElementById('branchSelect');
+
+    // Define branch options for each the Branches 
+    const branchOptions = {
+        'Branches': ['Isolo', 'Iyana Ipaja', 'Ipaja', 'Mafoluku/Oshodi', 'Ikotun', 'Alakuko/Alagbado', 'Iju/Oko Oba', 'Oke-Odo pipeline', 'Jankara/Ojokoro', 'Ejigbo', 'Meiran', 'Abule Egba', 'Dopemu/Agege', 'Bada/Ayobo', 'Ijegun', 'Shasha', 'Abaranje/Okerube', 'Ajasa/Command', 'Igando/Egan/Akesan', 'Arida Branch', 'Akinyode Group'],
+        
+    };
+
+    // Get the branches array
+    const branches = branchOptions['Branches']; // Retrieve branches for the "Branches" zone
+
+
+    // Populate the select dropdown
+    branches.forEach(branch => {
+        const option = document.createElement("option");
+        option.value = branch;  // Set the value attribute
+        option.textContent = branch;  // Set the display text
+        branchSelect.appendChild(option);  // Add the option to the select element
+    });
+
+    // Function to update branch options based on selected zone
+    // function updateBranchOptions() {
+    //     const selectedZone = zoneSelect.value;
+        // Clear existing options
+    //     branchSelect.innerHTML = '';
+    //     // Add default "Select Option" option
+    //     const defaultOption = document.createElement('option');
+    //     defaultOption.value = '';
+    //     defaultOption.textContent = 'Select Option';
+    //     branchSelect.appendChild(defaultOption);
+    //     // Add branch options based on the selected zone
+    //     branchOptions[selectedZone].forEach((branch) => {
+    //         const option = document.createElement('option');
+    //         option.value = branch;
+    //         option.textContent = branch;
+    //         branchSelect.appendChild(option);
+    //     });
+    // }
+
+    // // Add event listener to the zone select element
+    // zoneSelect.addEventListener('change', updateBranchOptions);
+
+    // // Initialize the branch options based on the default zone
+    // updateBranchOptions();
+
+</script>
+
+
+<!-- <script>
+    // Get references to the select elements
     const zoneSelect = document.getElementById('zoneSelect');
     const branchSelect = document.getElementById('branchSelect');
 
@@ -500,46 +564,8 @@ $("#click").click(function(){
     // Initialize the branch options based on the default zone
     updateBranchOptions();
 
-</script>
-
-<!-- <script>
-    // Get references to the select elements
-    const categorySelect = document.getElementById('categorySelect');
-    const age_rangeSelect = document.getElementById('age_rangeSelect');
-
-    // Define age range options for each category
-    const category = {
-        'Adult': ['18yrs-Above'],
-        'Teen': ['13-17yrs'],
-        'Children': ['4-12yrs'],
-        
-    };
-
-    // Function to update age range options based on selected category
-    function updateAgerangeOptions() {
-        const selectedCategory = categorySelect.value;
-        // Clear existing options
-        age_rangeSelect.innerHTML = '';
-        // Add default "Select Option" option
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = 'Select Option';
-        age_rangeSelect.appendChild(defaultOption);
-        // Add age_range options based on the selected category
-        age_rangeOptions[selectedCategory].forEach((age_range) => {
-            const option = document.createElement('option');
-            option.value = age_range;
-            option.textContent = age_range;
-            age_rangeSelect.appendChild(option);
-        });
-    }
-
-    // Add event listener to the zone select element
-    categorySelect.addEventListener('change', updateAgerangeOptions);
-
-    // Initialize the branch options based on the default zone
-    updateAgerangeOptions();
 </script> -->
+
 
 
 <script src ="https://code.jquery.com/jquery-3.5.0.min.js"></script>

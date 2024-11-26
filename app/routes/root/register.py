@@ -17,10 +17,9 @@ def register():
         last_name = request.form.get("last_name")
         number = request.form.get("number")
         email = request.form.get("email")
-        zone = request.form.get("zone")
         branch = request.form.get("branch")
         gender = request.form.get("gender")
-        status = request.form.get("status")
+        marital_status= request.form.get("marital_status")
         category = request.form.get("category")
         age_range = request.form.get("age_range")
         payment_date = request.form.get("payment_date")
@@ -55,10 +54,9 @@ def register():
                 last_name=last_name,
                 number=number,
                 email=email,
-                zone=zone,
                 branch=branch,
                 gender=gender,
-                status=status,
+                marital_status=marital_status,
                 category=category,
                 age_range=age_range,
                 payment_date=payment_date,
